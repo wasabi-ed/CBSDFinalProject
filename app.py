@@ -13,7 +13,7 @@ years = [(str(i), str(i)) for i in range(1985, 2025)]
 class CarSearch(FlaskForm):
     car_make = StringField("What is your Car Make: ", [DataRequired()])
     car_model = StringField("What is your Car Model: ", [DataRequired()])
-    make_year = SelectField("What year is your vehicle: ", [DataRequired()], choices=years)
+    make_year = SelectField("What year is your vehicle?: ", [DataRequired()], choices=years)
     submit = SubmitField("Get Safety Ratings")
 
 
