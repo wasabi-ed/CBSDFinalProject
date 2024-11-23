@@ -19,3 +19,17 @@ def get_car_info(year, make, model):
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
 
+
+def get_car_ratings(car_id):
+    url = f"https://api.nhtsa.gov/SafetyRatings/VehicleId/{car_id}"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            id_data = response.json()
+            overallRating = id_data["Results"][0]["OverallRating"]
+            return overallRating
+        else:
+            print(f"Error: {response.status_code}.")
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+
