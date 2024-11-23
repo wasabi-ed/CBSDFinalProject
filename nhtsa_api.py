@@ -26,7 +26,7 @@ def get_car_ratings(car_id):
         response = requests.get(url)
         if response.status_code == 200:
             id_data = response.json()
-            overallRating = id_data["Results"][0]["OverallRating"]
+            overallRating = id_data["Results"][0] #["OverallRating"]
             return overallRating
         else:
             print(f"Error: {response.status_code}.")

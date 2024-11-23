@@ -27,7 +27,10 @@ def home():
         year = form.make_year.data
         car_id = get_car_info(year, make, model)
         data = get_car_ratings(car_id)
-        return render_template("search_success.html", data=data)
+        print(type(car_id))
+        img = data["VehiclePicture"]
+        print(data["VehiclePicture"])
+        return render_template("search_success.html", data=data, img=img)
     return render_template("car_search.html", form=form)
 
 

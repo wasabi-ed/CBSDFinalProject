@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Safety Ratings Results</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff6f00, #b71c1c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        img {
+            border: 3px solid #ffffff;
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+        }
+        .button {
+            background-color: #5c6bc0;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    <h2>Car Safety Ratings</h2>
-    <p>Overall Rating: {{ data }}</p>
-
-</body>
+    <body>
+        <div class="container">
+            <h2>Car Safety Ratings</h2>
+            <img src="{{ img }}" alt="">
+            <h2>{{ data["VehicleDescription"] }}</h2>
+            <p>Overall Rating: {{ data["SideCrashDriversideRating"] }}</p>
+            <a href="{{ url_for('home') }}" class="button">Return to Search</a>
+        </div>
+    </body>
 </html>
