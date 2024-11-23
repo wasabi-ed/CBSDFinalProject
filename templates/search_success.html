@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Atkinson Hyperlegible' rel='stylesheet'>
     <meta charset="UTF-8">
     <title>Safety Ratings Results</title>
     <style>
@@ -11,15 +12,16 @@
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
+            font-family: 'Atkinson Hyperlegible';
         }
         .container {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(10, 10, 10, 0.8);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
             color: #ffffff;
             padding: 30px;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
         }
         h2 {
             margin-bottom: 20px;
@@ -34,7 +36,7 @@
         .button {
             background-color: #5c6bc0;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
             color: #ffffff;
             cursor: pointer;
             font-size: 16px;
@@ -50,7 +52,27 @@
             <img src="{{ img }}" alt="">
             <h2>{{ data["VehicleDescription"] }}</h2>
             <p>Overall Rating: {{ data["OverallRating"] }}</p>
-            <p>Overall Front Crash Rating: {{ data["OverallFrontCrashRating"] }}</p>
+
+            <p>Overall Front Crash Rating: {{ data["OverallFrontCrashRating"] }}<br>
+                Front Crash Driver Rating: {{ data["FrontCrashDriversideRating"] }}<br>
+                Front Crash Passenger Rating: {{ data["FrontCrashPassengersideRating"]}}
+            </p>
+<!--            <p>Front Crash Driver Rating: {{ data["FrontCrashDriversideRating"] }}</p>-->
+<!--            <p>Front Crash Passenger Rating: {{ data["FrontCrashPassengersideRating"] }}</p>-->
+
+            <p>Overall Side Crash:  {{data["OverallSideCrashRating"]}}</p>
+
+            <p>Rollover Rating: {{data["RolloverRating"]}}<br>
+                Rollover Possibility: {{data["RolloverRating"]}}
+            </p>
+<!--            <p>Rollover Possibility: {{data["RolloverRating"]}}</p>-->
+
+
+            <p>Advanced Safety Features<br>
+                Electronic Stability Control: {{data ["NHTSAElectronicStabilityControl"]}}<br>
+               Forward Collision Warning: {{data ["NHTSAForwardCollisionWarning"]}}<br>
+               Lane Departure:  {{data ["NHTSALaneDepartureWarning"]}}
+            </p><br>
             <a href="{{ url_for('home') }}" class="button">Return to Search</a>
         </div>
     </body>
