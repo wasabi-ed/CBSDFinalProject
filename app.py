@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
+from nhtsa_api import get_car_info
 import os
 
 app = Flask(__name__)
@@ -24,8 +25,8 @@ def home():
         make = form.car_make.data
         model = form.car_model.data
         year = form.make_year.data
-        data = [make, model, year]
-        return render_template("safety_ratings.html", data=data)
+        data = get_car_info(year, make, model)
+        return render_template("search_success.html", data=data)
     return render_template("car_search.html", form=form)
 
 
