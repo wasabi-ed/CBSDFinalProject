@@ -14,8 +14,9 @@ def get_car_info(year, make, model):
             #     if i["VehicleDescription"] == vehicle_description:
             #         car_id = i["VehicleId"]
             return car_id
-        elif:
-            return f" No results found for {year} {make} {model}"
+
+        elif response.json()["count"] ==0:
+            return f"No results found for search"
 
         else:
             print(f"Error: {response.status_code}")
@@ -31,6 +32,11 @@ def get_car_ratings(car_id):
             id_data = response.json()
             overallRating = id_data["Results"][0] #["OverallRating"]
             return overallRating
+
+        elif response.json()["count"] == 0:
+            return f"No results found for search"
+
+
         else:
             print(f"Error: {response.status_code}.")
     except requests.exceptions.RequestException as e:
