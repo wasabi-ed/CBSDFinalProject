@@ -14,6 +14,9 @@ def get_car_info(year, make, model):
             #     if i["VehicleDescription"] == vehicle_description:
             #         car_id = i["VehicleId"]
             return car_id
+        elif:
+            return f" No results found for {year} {make} {model}"
+
         else:
             print(f"Error: {response.status_code}")
     except requests.exceptions.RequestException as e:
