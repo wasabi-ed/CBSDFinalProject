@@ -30,8 +30,6 @@ def home():
             error = f"No results for {year} {make} {model}"
             return render_template("no_results.html", error=error)
         data = get_car_ratings(car_id)
-        print(type(car_id))
-        # img = data["VehiclePicture"]
         return render_template("search_success.html", data=data)
     return render_template("car_search.html", form=form)
 
