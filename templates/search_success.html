@@ -49,7 +49,8 @@
     <body>
         <div class="container">
             <h2>Car Safety Ratings</h2>
-            <img src="{{ img }}" alt="">
+
+            <img src="{{ data['VehiclePicture'] }}" alt="">
             <h2>{{ data["VehicleDescription"] }}</h2>
             <p>Overall Rating: {{ data["OverallRating"] }}</p>
 
@@ -65,7 +66,6 @@
             <p>Rollover Rating: {{data["RolloverRating"]}}<br>
                 Rollover Possibility: {{data["RolloverRating"]}}
             </p>
-<!--            <p>Rollover Possibility: {{data["RolloverRating"]}}</p>-->
 
 
             <p>Advanced Safety Features<br>

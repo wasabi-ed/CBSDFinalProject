@@ -26,15 +26,15 @@ def home():
         model = form.car_model.data
         year = form.make_year.data
         car_id = get_car_info(year, make, model)
+        if car_id == True:
+            error = f"No results for {year} {make} {model}"
+            return render_template("no_results.html", error=error)
         data = get_car_ratings(car_id)
         print(type(car_id))
-        img = data["VehiclePicture"]
-        print(data["VehiclePicture"])
-        return render_template("search_success.html", data=data, img=img)
+        # img = data["VehiclePicture"]
+        return render_template("search_success.html", data=data)
     return render_template("car_search.html", form=form)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-    # Hello Jon
