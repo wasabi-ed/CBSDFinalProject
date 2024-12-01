@@ -42,7 +42,12 @@
             font-size: 16px;
             padding: 10px;
             text-align: center;
-            width: 100%;
+            width: 40%;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
     </style>
 </head>
@@ -73,7 +78,9 @@
                Forward Collision Warning: {{data ["NHTSAForwardCollisionWarning"]}}<br>
                Lane Departure:  {{data ["NHTSALaneDepartureWarning"]}}
             </p><br>
-            <a href="{{ url_for('home') }}" class="button">Return to Search</a>
+            <div class="flex-container">
+                <a href="{{ url_for('home') }}" class="button">Return to Search</a>
+            </div>
         </div>
     </body>
 </html>
