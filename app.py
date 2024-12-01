@@ -5,6 +5,8 @@ from wtforms.validators import DataRequired
 from nhtsa_api import get_car_info, get_car_ratings
 import os
 
+# Collaborators: Edward Mendieta, Matias Jorquera, Jonathan Insua, Jonathan Jesion
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(16)
 
